@@ -9,24 +9,29 @@ const getMessage = require("./controllers/chat.js");
 
 const app = express();
 
-const PORT = 5000;
-const HOST =
-  process.env.NODE_ENV?.trim() === "development" ? "localhost" : "0.0.0.0.";
+// Use Render's PORT or fallback to 5000
+const PORT = process.env.PORT || 5000;
 
 app.use(bodyParser.json());
 app.use(
   session({
-    secret: process.env.SESSION_SECRET_KEY || "default_secret_key", // Use env variable or default for dev
+    secret: process.env.SESSION_SECRET_KEY || "default_secret_key",
     resave: false,
     saveUninitialized: true,
-    cookie: { secure: process.env.NODE_ENV === "production" }, // Secure cookies in production
+    cookie: { secure: process.env.NODE_ENV === "production" },
   })
 );
-// Enable CORS for all origins
+
 app.use(cors());
 
 app.post("/api/chat", getMessage);
 
-app.listen(PORT, HOST, () => {
-  console.log(`[server]: Server is running at http://${HOST}:${PORT}`);
+// Simple health check route
+app.get('/', (req, res) => {
+  res.send('Server is running');
+});
+
+// Updated listen configuration
+app.listen(PORT, '0.0.0.0', () => {
+  console.log(`Server is running on port ${PORT}`);
 });
