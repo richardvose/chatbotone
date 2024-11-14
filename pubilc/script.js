@@ -423,7 +423,7 @@ const chatbotJS = () => {
   };
 
   const generateResponse = (li, message) => {
-    const API_URL = "[link]" + "/api/chat";
+    const API_URL = "https://chatbotone.onrender.com" + "/api/chat";
     const messageElement = li.querySelector("p");
 
     const requestOptions = {
