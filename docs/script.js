@@ -1,114 +1,13 @@
 // encapsulate inside a function to avoid shadowing and overwriting
 const main = () => {
   //gather function
-  chatbotDOM();
+  //chatbotDOM();
   importGoogleFonts();
   chatbotStyles();
   chatbotJS();
   console.log("CHATBOT ACTIVATED");
 };
-const chatbotDOM = () => {
-  // Create show-chatbot div
-  const showChatbotDiv = document.createElement("div");
-  showChatbotDiv.classList.add("show-chatbot");
-  showChatbotDiv.id = "chatBot";
 
-  // Create chatbot-toggle button
-  const chatbotToggleBtn = document.createElement("button");
-  chatbotToggleBtn.classList.add("chatbot-toggle", "glass-bg");
-
-  // Create mode_comment span
-  const modeCommentSpan = document.createElement("span");
-  modeCommentSpan.classList.add("material-symbols-outlined");
-  modeCommentSpan.textContent = "mode_comment";
-  chatbotToggleBtn.appendChild(modeCommentSpan);
-
-  // Create close span
-  const closeSpan = document.createElement("span");
-  closeSpan.classList.add("material-symbols-outlined");
-  closeSpan.textContent = "close";
-  chatbotToggleBtn.appendChild(closeSpan);
-
-  // Create chatbot div
-  const chatbotDiv = document.createElement("div");
-  chatbotDiv.classList.add("chatbot", "glass-bg");
-
-  // Create header
-  const header = document.createElement("header");
-
-  // Create avatar div
-  const avatarDiv = document.createElement("div");
-  avatarDiv.classList.add("avatar");
-
-  // Create img
-  const img = document.createElement("img");
-  img.src = "[link to chatbot avatar]";
-  img.alt = "chat avatar";
-  avatarDiv.appendChild(img);
-
-  // Create header-body div
-  const headerBodyDiv = document.createElement("div");
-  headerBodyDiv.classList.add("header-body");
-
-  // Create h2
-  const h2 = document.createElement("h2");
-  h2.textContent = "Chatbot";
-
-  // Create p
-  const p = document.createElement("p");
-  p.textContent = "Online with AI";
-  headerBodyDiv.appendChild(h2);
-  headerBodyDiv.appendChild(p);
-
-  // Create span for close button
-  const closeButtonSpan = document.createElement("span");
-  closeButtonSpan.id = "chatbot-close-btn";
-  closeButtonSpan.classList.add("material-symbols-outlined");
-  closeButtonSpan.textContent = "close";
-
-  // Append elements to header
-  header.appendChild(avatarDiv);
-  header.appendChild(headerBodyDiv);
-  header.appendChild(closeButtonSpan);
-
-  // Create ul for chatbox
-  const chatboxUl = document.createElement("ul");
-  chatboxUl.classList.add("chatbox");
-
-  // Create li for incoming chat
-  const incomingLi = document.createElement("li");
-  incomingLi.classList.add("chat", "incoming");
-  const incomingP = document.createElement("p");
-  incomingP.innerHTML = "Hi there! <br />How can I help you today?";
-  incomingLi.appendChild(incomingP);
-  chatboxUl.appendChild(incomingLi);
-
-  // Create div for chat input
-  const chatInputDiv = document.createElement("div");
-  chatInputDiv.classList.add("chat-input");
-  const textarea = document.createElement("textarea");
-  textarea.placeholder = "Enter a message...";
-  textarea.required = true;
-  const sendBtnSpan = document.createElement("span");
-  sendBtnSpan.id = "send-btn";
-  sendBtnSpan.classList.add("material-symbols-outlined");
-  sendBtnSpan.textContent = "send";
-  chatInputDiv.appendChild(textarea);
-  chatInputDiv.appendChild(sendBtnSpan);
-
-  // Append elements to chatbot div
-  chatbotDiv.appendChild(header);
-  chatbotDiv.appendChild(chatboxUl);
-  chatbotDiv.appendChild(chatInputDiv);
-
-  // Append elements to show-chatbot div
-  showChatbotDiv.appendChild(chatbotToggleBtn);
-  showChatbotDiv.appendChild(chatbotDiv);
-
-  // Append show-chatbot div to body
-  document.body.appendChild(showChatbotDiv);
-  console.log("CHATBOT DOM GENERATED");
-};
 const chatbotStyles = () => {
   const style = document.createElement("style");
   style.textContent = `
